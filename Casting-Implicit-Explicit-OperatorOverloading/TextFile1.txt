@@ -1,0 +1,17 @@
+﻿1.1 Currecy enum
+
+- Usd - dollar
+- Eur - yevro
+- Try - türk lirası
+
+1.2 Program class
+- Exchange() - bu method parametr olaraq bir Enum tipindən obyekt qəbul edəcək 
+birdə double tipindən azn, method daxilində ilk olaraq yoxlamaq lazımdır ki 
+gələn Enum obyekti Currecy enumıdırmı daha sonra daha sonra hansı valyuta 
+göndərilibsə göndərilən azn-i həmin valyutaya uyğun 
+konvertasiya edib geriyə qaytaracaq. Məsələn: method-a parametr olaraq azn dəyəri 
+2 göndərildisə və valyuta usd göndərildisə geriyə 2 * 0.59 = 1.18 qaytarılmalıdır.
+
+2. Kelvin ve Celsius(selsi) adli iki temperaturu gosteren klasslarimiz var 
+ve Degree adli property-leri var. Celcius uchun implicit operatorunu 
+yazmaginizi isteyirem.(0C=273K)
