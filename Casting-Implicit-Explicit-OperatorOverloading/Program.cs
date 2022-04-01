@@ -7,18 +7,16 @@ namespace Casting_Implicit_Explicit_OperatorOverloading
         enum Currencies : int { USD=1, EUR, TL };
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("Enter currency: \n" +
+            Console.Write("How much AZN do you have? ");
+            double AZN = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine($"Convert {AZN} to: \n" +
                 "1. USD     2. EUR     3. TL");
-            int day = Convert.ToInt32(Console.ReadLine());
+            int UserCurrency= Convert.ToInt32(Console.ReadLine());
             int usd;
-            switch (day)
+            switch (UserCurrency)
             {
-                case (int)Currencies.USD:
-                    Console.WriteLine("How much USD do you have? ");
-                    usd = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("dollar");
-                    Exchange(usd);
+                case 1:
+                        Exchange(Currencies.USD, AZN);
                     break;
                 case (int)Currencies.EUR:
                     Console.WriteLine("EUR");
@@ -31,16 +29,21 @@ namespace Casting_Implicit_Explicit_OperatorOverloading
                     break;
             }
 
-            static void Exchange(int obj, double azn)
+            static Currencies Exchange(Currencies money, double AZN)
             {
-                if (obj is Currencies)
+                Currencies USD;
+                Currencies EUR;
+                Currencies TL;
+                double manat = AZN;
+                if (money == Currencies.USD) //usd is Currencies)
                 {
-                    if (obj == Currencies.USD)
-                    {
-
-                    }
+                    
+                        AZN = 0.59;
+                        money = money * AZN;
+                        return money;
                 }
-                int Money = obj;
+                return money;
+                //int Money = obj;
                 //double Manat = azn;
                 Console.WriteLine("metod isleyir");
             } 
