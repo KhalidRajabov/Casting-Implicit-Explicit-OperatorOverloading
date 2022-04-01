@@ -4,48 +4,62 @@ namespace Casting_Implicit_Explicit_OperatorOverloading
 {
     internal class Program
     {
-        enum Currencies : int { USD=1, EUR, TL };
+        enum Currencies : int { USD, EUR, TL };
         static void Main(string[] args)
         {
-            Console.Write("How much AZN do you have? ");
-            double AZN = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Convert {AZN} to: \n" +
-                "1. USD     2. EUR     3. TL");
-            int UserCurrency= Convert.ToInt32(Console.ReadLine());
-            int usd;
-            switch (UserCurrency)
+            do
             {
-                case 1:
-                        Exchange(Currencies.USD, AZN);
-                    break;
-                case (int)Currencies.EUR:
-                    Console.WriteLine("EUR");
-                    break;
-                case (int)Currencies.TL:
-                    Console.WriteLine("TL");
-                    break;
-
-                default:
-                    break;
-            }
-
-            static Currencies Exchange(Currencies money, double AZN)
-            {
-                Currencies USD;
-                Currencies EUR;
-                Currencies TL;
-                double manat = AZN;
-                if (money == Currencies.USD) //usd is Currencies)
+                Console.Write("How much AZN do you have? ");
+                double AZN = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine($"Convert {AZN} to: \n" +
+                    "1. USD     2. EUR     3. TL");
+                int UserCurrency = Convert.ToInt32(Console.ReadLine());
+                int usd;
+                switch (UserCurrency)
                 {
-                    
-                        AZN = 0.59;
-                        money = money * AZN;
-                        return money;
+                    case 1:
+                        Exchange(Currencies.USD, AZN);
+                        break;
+                    case 2:
+                        Exchange(Currencies.EUR, AZN);
+                        break;
+                    case 3:
+                        Exchange(Currencies.TL, AZN);
+                        break;
+
+                    default:
+                        break;
                 }
-                return money;
-                //int Money = obj;
-                //double Manat = azn;
-                Console.WriteLine("metod isleyir");
+                Console.WriteLine("Press anything to continue");
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
+           
+
+            static double Exchange(Currencies money, double AZN)
+            {
+                double Converted = 0;
+                if (money is Currencies) //usd is Currencies)
+                {
+                    if (money is Currencies.USD)
+                    {
+                        Converted = AZN * 0.59;
+                        Console.WriteLine($"{AZN} manat is equal to {Converted} dollar");
+                    }
+                    else if (money is Currencies.EUR)
+                    {
+                        Converted = AZN * 0.53;
+                        Console.WriteLine($"{AZN} manat is equal to {Converted} euro");
+                    }
+                    else if (money is Currencies.TL)
+                    {
+                        Converted = AZN * 8.64;
+                        Console.WriteLine($"{AZN} manat is equal to {Converted} Lira");
+                    }
+                    else
+                    {
+                        Console.WriteLine(" Oops! Something went wrong!");
+                    }
+                }
+                return Converted;
             } 
         }
     }
