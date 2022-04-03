@@ -14,4 +14,4 @@ konvertasiya edib geriyə qaytaracaq. Məsələn: method-a parametr olaraq azn d
 
 2. Kelvin ve Celsius(selsi) adli iki temperaturu gosteren klasslarimiz var 
 ve Degree adli property-leri var. Celcius uchun implicit operatorunu 
-yazmaginizi isteyirem.(0C=273K)
+yazmaginizi isteyirem.(0C=273K) 

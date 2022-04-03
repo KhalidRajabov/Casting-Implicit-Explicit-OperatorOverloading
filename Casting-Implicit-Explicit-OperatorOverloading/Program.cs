@@ -1,4 +1,5 @@
 ﻿using System;
+using Casting_Implicit_Explicit_OperatorOverloading.Models;
 
 namespace Casting_Implicit_Explicit_OperatorOverloading
 {
@@ -30,10 +31,20 @@ namespace Casting_Implicit_Explicit_OperatorOverloading
                     default:
                         break;
                 }
-                Console.WriteLine("Press anything to continue");
-            } while (Console.ReadKey().Key != ConsoleKey.Escape);
-           
 
+
+                Console.Write("Convert kelvin to celcius: ");
+
+                double klvtoclc = Convert.ToDouble(Console.ReadLine());
+
+                Celcius Celci1 = new Celcius(klvtoclc);
+                Kelvin Kelvin1 = Celci1;
+                Console.WriteLine($"{klvtoclc} kelvin is {Kelvin1.Kelv} celcius");
+
+
+
+
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
             static double Exchange(Currencies money, double AZN)
             {
                 double Converted = 0;
@@ -60,7 +71,19 @@ namespace Casting_Implicit_Explicit_OperatorOverloading
                     }
                 }
                 return Converted;
-            } 
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+
+
+           
+
         }
     }
 }
